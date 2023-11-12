@@ -1,0 +1,6 @@
+.idea
+node_modules
+.pnpm-store
+warehouse-management-system/node_modules
+graphql/node_modules
+graphql/.pnpm-store

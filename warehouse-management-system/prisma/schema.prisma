@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
+  username String
+}
+
+// comment on table public.warehouses is 'The main warehouse table ';
+// comment on column public.warehouses.warehouse_id is 'Warehouse kid';
+// comment on column public.warehouses."Name" is 'Identify name for the warehouse';
+// comment on column public.warehouses.endpoint is 'The endpoint for connect to the warehouse info';
+// comment on column public.warehouses.status is 'The status for the kid warehouse ';
+// comment on column public.warehouses.hazardousallow is 'Identify warehouse with hazardous allows';
+// comment on column public.warehouses.porcentagefree is 'Inform about the porcentage free for the warehouse';
+// comment on column public.warehouses.statustime is 'The date time of the last update for stock values';
+model Warehouses {
+  id             Int           @id @default(autoincrement())
+  Name           String        @unique
+  endpoint       String
+  status         Int
+  maxstock       Float
+  hazardousallow Int
+  porcentagefree Float
+  statustime     DateTime      @default(now())
+  Warehouse_1    Warehouse_1[]
+  Warehouse_2    Warehouse_2[]
+}
+
+model Warehouse_1 {
+  warehouse_id Int
+  productId    Int         @id @default(autoincrement())
+  category     Int
+  ean          String      @unique
+  stock_qty    Float
+  max_mq       Float
+  date_arrive  DateTime
+  date_depart  DateTime
+  Warehouses   Warehouses? @relation(fields: [warehousesId], references: [id])
+  warehousesId Int?
+}
+
+model Warehouse_2 {
+  warehouse_id Int
+  productId    Int         @id @default(autoincrement())
+  category     Int
+  ean          String      @unique
+  stock_qty    Float
+  max_mq       Float
+  date_arrive  DateTime
+  date_depart  DateTime?
+  Warehouses   Warehouses? @relation(fields: [warehousesId], references: [id])
+  warehousesId Int?
+}
+
+model Warehouse_products_activity {
+  id            Int      @id @default(autoincrement())
+  ean           String
+  date_activity DateTime
+  type_activity Int
+  comment       String
+  qty           Float
+  warehouse_id  Int
+}
+
+model Products {
+  id      Int    @id @default(autoincrement())
+  ean     String @unique
+  comment String
+  type    Int
+  tot_mq  Float
+}
