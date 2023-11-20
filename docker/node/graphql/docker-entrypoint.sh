@@ -7,5 +7,6 @@ set -e
 #	done
 ### EXECUTE MIGRATIONS ####
 #cd warehouse-management-system && npx prisma migrate dev --name init && npx prisma db seed
-cd graphql-server && pnpm dev
+
+cd graphql-server && npm install && npm run build && npm run start
 exec "$@"
