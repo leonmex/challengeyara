@@ -1,6 +1,10 @@
 .idea
 node_modules
+node_modules/
 .pnpm-store
 warehouse-management-system/node_modules
 graphql/node_modules
 graphql/.pnpm-store
+warehouse-management-system/AFTER_NOT_WORK_app/
+warehouse-management-system/BEFORE_app/
+docker/node/

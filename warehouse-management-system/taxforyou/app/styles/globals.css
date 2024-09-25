@@ -1,0 +1,56 @@
+/* styles/global.css */
+
+/* Bootstrap Override (if necessary) */
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    background-color: #f8f9fa; /* Light grey background */
+    margin: 0;
+    padding: 0;
+    color: #212529; /* Dark grey text */
+}
+
+/* Hero Section */
+.hero {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 2rem 1rem; /* Spacing around the content */
+    text-align: center;
+}
+
+/* Features Section */
+.features {
+    padding: 2rem 1rem; /* Spacing around the content */
+    text-align: center;
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: #343a40; /* Dark grey for navbar */
+}
+
+.navbar .nav-link {
+    color: #ffffff; /* White text */
+}
+
+.navbar .nav-link:hover {
+    color: #f8f9fa; /* Light grey on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40; /* Dark grey for footer */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 1rem 0; /* Spacing around footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 1rem; /* Less padding on small screens */
+    }
+
+    .features {
+        padding: 1rem; /* Less padding on small screens */
+    }
+}

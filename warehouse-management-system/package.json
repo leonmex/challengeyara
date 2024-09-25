@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "buildall": "prisma generate && next build",
     "data": "prisma db seed",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build": "next build"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -22,11 +23,13 @@
     "@types/react-dom": "18.2.14",
     "apollo-server-micro": "^3.12.1",
     "autoprefixer": "10.4.16",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.3.3",
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.1",
     "js-cookie": "^3.0.5",
     "next": "14.0.1",
-    "next-auth": "^4.24.4",
+    "next-auth": "^4.24.7",
     "postcss": "8.4.31",
     "postgres": "^3.4.3",
     "react": "18.2.0",

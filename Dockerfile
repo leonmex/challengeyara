@@ -40,3 +40,13 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
 
+FROM base as typescript
+
+RUN npm install
+
+COPY ./typescript /usr/src/app
+
+COPY docker/node/typescript/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
