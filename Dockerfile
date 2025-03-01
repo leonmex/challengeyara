@@ -7,13 +7,16 @@ WORKDIR /usr/src/app
 COPY package*.json /usr/src/app
 
 RUN set -eux \
-    & apk add \
+    && apk update \
+    && apk add \
     --no-cache \
     nodejs \
     yarn \
     git \
     wget \
+    cronie \
     ;
+
 RUN yarn install
 
 FROM base AS graphql
@@ -31,6 +34,7 @@ ENTRYPOINT ["docker-entrypoint"]
 
 FROM base as webapp
 
+RUN apk update --no-cache && apk add --no-cache curl
 RUN npm install
 
 COPY . /usr/src/app
